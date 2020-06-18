@@ -1,9 +1,32 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>editar-sintomas</ion-title>
+    <ion-title>Adicionar/Editar sintomas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  
+    <ion-list>
+    <ion-label stacked>Data</ion-label>
+    <ion-datetime displayFormat="DD/mm/YYYY" name="data" [(ngModel)]="model.data"></ion-datetime>
 
+    <ion-label stacked>Descrição</ion-label>
+    <ion-input type="text" name="descricao" [(ngModel)]="model.descricao"></ion-input>
+
+    <ion-label stacked>Intensidade Alta</ion-label>
+    <ion-toggle type="text" name="itensidade" [(ngModel)]="model.intensidade"></ion-toggle>
+  </ion-list>
+  <ion-grid fixed>
+    <ion-row>
+     <ion-col size="10" offset="1">
+       <ion-button (click)="save()" color="success"
+                   expand="full"
+                   shape="round"
+                   mode="ios"
+                   class="btn-primary">
+         Login
+       </ion-button>
+     </ion-col>
+     </ion-row>
+  </ion-grid>
 </ion-content>

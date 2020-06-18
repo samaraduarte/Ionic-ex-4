@@ -1,5 +1,7 @@
 {
   "name": "Exercicio4",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

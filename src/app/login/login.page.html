@@ -5,5 +5,38 @@
 </ion-header>
 
 <ion-content>
-
+  <img src="./assets/brandi-redd-aJTiW00qqtI-unsplash.jpg">
+      <ion-title><h1>Faça seu login!</h1></ion-title>
+    
+    <ion-item>
+      <ion-label position="floating">Usuario</ion-label>
+      <ion-input [(ngModel)]="userLogin.email" name="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Senha</ion-label>
+      <ion-input [(ngModel)]="userLogin.senha" name="senha" type="password" ></ion-input>
+    </ion-item>
+    <ion-grid fixed>
+      <ion-row>
+       <ion-col size="10" offset="1">
+         <ion-button (click)="login()" color="success"
+                     expand="full"
+                     shape="round"
+                     mode="ios"
+                     class="btn-primary">
+           Login
+         </ion-button>
+       </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="10" offset="1">
+          <ion-button (click)="registrar()"
+                      routerLink="/login" expand="full"
+                      fill="clear">
+            <ion-label color="dark">Registre-se!</ion-label>
+          </ion-button>
+        </ion-col>
+       </ion-row>
+    </ion-grid>
 </ion-content>
+

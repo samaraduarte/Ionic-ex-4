@@ -5,5 +5,19 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-list *ngIf="sintomas">
+    <ion-card *ngFor="let sintomaKey of sintomas">
+      <ion-card-header>
+        <h2>{{sintomaKey.sintoma.descricao}}</h2>
+      </ion-card-header>
+      <ion-card-content>{{sintomaKey.sintoma.data | date: 'dd/mm/yyyy'}}</ion-card-content>
+      <ion-card-content>{{sintomaKey.sintoma.intensidade}}</ion-card-content>
+    </ion-card>
+  </ion-list>
+  <ion-row *ngIf="sintomas.length == 0">
+    <ion-text><h3>Nenhum sintoma!</h3></ion-text>
+  </ion-row>
+  <ion-fab vertical="button" horizontal="end" padding slor="fixed">
+    <ion-fab-button><ion-icon name="add" (click)="addSintoma()"></ion-icon></ion-fab-button>
+  </ion-fab>
 </ion-content>
