@@ -1,21 +1,31 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Adicionar/Editar sintomas</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Sintomas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  
-    <ion-list>
-    <ion-label stacked>Data</ion-label>
+  <form>
+    <ion-item>
+    <ion-label >Data</ion-label>
     <ion-datetime displayFormat="DD/mm/YYYY" name="data" [(ngModel)]="model.data"></ion-datetime>
-
-    <ion-label stacked>Descrição</ion-label>
+    </ion-item>
+    <ion-item>
+    <ion-label>Descrição</ion-label>
     <ion-input type="text" name="descricao" [(ngModel)]="model.descricao"></ion-input>
-
-    <ion-label stacked>Intensidade Alta</ion-label>
-    <ion-toggle type="text" name="itensidade" [(ngModel)]="model.intensidade"></ion-toggle>
-  </ion-list>
+  </ion-item>
+  <ion-item>
+    <ion-label>Intensidade</ion-label>
+    <ion-select name="intensidade" [(ngModel)]="model.intensidade" value="intensidade" okText="Ok" cancelText="Cancelar">
+      <ion-select-option value="Baixa">Baixa</ion-select-option>
+      <ion-select-option value="Media">Media</ion-select-option>
+      <ion-select-option value="Alta">Alta</ion-select-option>
+    </ion-select>
+  </ion-item>
+  </form>
   <ion-grid fixed>
     <ion-row>
      <ion-col size="10" offset="1">
@@ -24,9 +34,10 @@
                    shape="round"
                    mode="ios"
                    class="btn-primary">
-         Login
+         Salvar
        </ion-button>
      </ion-col>
      </ion-row>
   </ion-grid>
+
 </ion-content>

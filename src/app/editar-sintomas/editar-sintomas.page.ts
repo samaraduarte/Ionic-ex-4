@@ -10,13 +10,30 @@ import { Sintoma } from './../models/Sintoma.model';
 })
 export class EditarSintomasPage implements OnInit {
 
+  titulo: string;
   model: Sintoma;
   key: string;
 
-  constructor(private router: Router, private saudeService: SaudeService) { }
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private saudeService: SaudeService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.titulo = 'Adicionar sintoma';
     this.model = new Sintoma();
+    this.activatedRoute.params.subscribe( (data) => {
+      if (Object.keys(data).length >= 1){
+        this.saudeService.get(data.key).then( dataObject => {
+          this.model.data = dataObject.data;
+          this.model.descricao = dataObject.descricao;
+          this.model.intensidade = dataObject.intensidade;
+          this.key = data.key;
+        });
+      }
+    });
+
+  }
+
+  ionViewDidLeave(){
+    delete this.model;
   }
 
   async save(){
